@@ -57,3 +57,48 @@ Create symbolic link of `node_modules` in `app/js/` so that it's possible to use
 ```bash
 ln -s $(pwd)/.rhino/node/node_modules $(pwd)/app/js
 ```
+
+Now let's edit `app/js/index.js`:
+
+```js
+const Barplot = () => {
+  return <h1>Barplot</h1>;
+};
+
+window.jsmodule = {
+  ...window.jsmodule,
+  plots: { Barplot },
+};
+```
+
+And migrate `Barplot` component using `shiny.react`. Let's create `app/view/components.R` file:
+
+```r
+box::use(
+  htmltools[htmlDependency],
+  shiny.react[asProps, reactElement],
+)
+
+dependency <- function() {
+  htmlDependency(
+    name = "plots",
+    version = "0.1.0",
+    src = "app/static/js",
+    script = "app.min.js"
+  )
+}
+
+component <- function(name) {
+  function(...) reactElement(
+    module = "plots",
+    name = name,
+    props = asProps(...),
+    deps = dependency()
+  )
+}
+
+#' @export
+Barplot <- component("Barplot")
+```
+
+Now we can use `Barplot` component in Shiny.

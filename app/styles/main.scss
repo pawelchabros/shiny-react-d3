@@ -1,3 +1,17 @@
+body {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+}
+
+.card {
+  box-shadow: 2px 2px 5px lightgrey;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+}
+
 rect {
   transition: all 0.3s;
 }

@@ -29,11 +29,14 @@ const Barplot = ({
   };
   const xAxisRef = useRef(null);
   useEffect(() => {
-    select(xAxisRef.current).transition().call(axisBottom(scale.x));
+    select(xAxisRef.current)
+      .transition()
+      .duration(500)
+      .call(axisBottom(scale.x));
   }, [scale.x]);
   const yAxisRef = useRef(null);
   useEffect(() => {
-    select(yAxisRef.current).transition().call(axisLeft(scale.y));
+    select(yAxisRef.current).transition().duration(500).call(axisLeft(scale.y));
   }, [scale.y]);
   return (
     <svg width={width} height={height}>

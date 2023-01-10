@@ -3,6 +3,7 @@ box::use(
   shiny[
     actionButton,
     bootstrapPage,
+    div,
     moduleServer,
     NS,
     observeEvent,
@@ -14,13 +15,13 @@ box::use(
 )
 
 box::use(
-  ./view/barplot[Barplot],
+  ./view/components[Barplot],
 )
 
 generate_data <- function() {
   tibble(
     y = paste("Category", sample(LETTERS[1:5], 5)),
-    x = rpois(5, 50)
+    x = rpois(5, 10) ^ 2
   ) %>%
     arrange(-x)
 }
@@ -29,8 +30,11 @@ generate_data <- function() {
 ui <- function(id) {
   ns <- NS(id)
   bootstrapPage(
-    actionButton(inputId = ns("change_data"), label = "Change Data"),
-    reactOutput(ns("barplot"))
+    div(
+      class = "card",
+      actionButton(inputId = ns("change_data"), label = "Change Data"),
+      reactOutput(ns("barplot"))
+    )
   )
 }
 

@@ -15,7 +15,7 @@ box::use(
 )
 
 box::use(
-  ./view/barplot[Barplot],
+  ./view/components[Barplot],
 )
 
 generate_data <- function() {

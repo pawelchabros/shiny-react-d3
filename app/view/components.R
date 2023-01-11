@@ -23,3 +23,6 @@ component <- function(name) {
 
 #' @export
 Barplot <- component("Barplot")
+
+#' @export
+Scatterplot <- component("Scatterplot")

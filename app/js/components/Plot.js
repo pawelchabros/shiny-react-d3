@@ -18,8 +18,8 @@ const Plot = ({
     height: height - margin.bottom - margin.top,
   };
   const scale = {
-    x: useScale({ data, aes: "x", size: panel.width, absolute: true }),
-    y: useScale({ data, aes: "y", size: panel.height }).padding(0.4),
+    x: useScale({ data, aes: "x", size: panel.width }),
+    y: useScale({ data, aes: "y", size: panel.height }),
   };
   const childrenWithProps = Children.map(children, (child) => {
     if (child) {

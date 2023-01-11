@@ -16,7 +16,12 @@ text {
   font-family: monospace;
 }
 
+.bar,
+.point,
+.line {
+  transition: all 0.5s;
+}
+
 .bar {
   rx: 3px;
-  transition: all 0.5s;
 }

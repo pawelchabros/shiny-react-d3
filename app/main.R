@@ -51,12 +51,10 @@ server <- function(id) {
     output$plot <- renderReact(
       Plot(
         data = data(),
-        children = list(
-          AxisBottom(),
-          AxisLeft(),
-          GeomLine(),
-          GeomPoint()
-        )
+        AxisBottom(),
+        AxisLeft(),
+        GeomLine(),
+        GeomPoint()
       )
     )
   })

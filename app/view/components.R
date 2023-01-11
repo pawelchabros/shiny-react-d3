@@ -28,7 +28,14 @@ Barplot <- component("Barplot")
 Scatterplot <- component("Scatterplot")
 
 #' @export
-Plot <- component("Plot")
+Plot <- function(data, ..., width = 500, height = 300) {
+  component("Plot")(
+    data = data,
+    width = width,
+    height = height,
+    children = list(...)
+  )
+}
 
 #' @export
 AxisBottom <- component("AxisBottom")

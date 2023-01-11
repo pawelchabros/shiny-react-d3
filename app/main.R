@@ -23,7 +23,7 @@ generate_data <- function() {
     y = paste("Category", sample(LETTERS[1:5], 5)),
     x = rpois(5, 10) ^ 2
   ) %>%
-    arrange(-x)
+    arrange(x)
 }
 
 #' @export

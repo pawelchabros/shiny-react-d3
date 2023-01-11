@@ -15,15 +15,14 @@ box::use(
 )
 
 box::use(
-  ./view/components[Barplot],
+  ./view/components[Scatterplot],
 )
 
 generate_data <- function() {
   tibble(
-    y = paste("Category", sample(LETTERS[1:5], 5)),
-    x = rpois(5, 10) ^ 2
-  ) %>%
-    arrange(x)
+    x = 1:10,
+    y = rpois(10, 10) ^ 2
+  )
 }
 
 #' @export
@@ -43,6 +42,6 @@ server <- function(id) {
   moduleServer(id, function(input, output, session) {
     data <- reactiveVal(generate_data())
     observeEvent(input$change_data, data(generate_data()))
-    output$barplot <- renderReact(Barplot(data = data()))
+    output$barplot <- renderReact(Scatterplot(data = data()))
   })
 }

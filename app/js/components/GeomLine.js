@@ -1,6 +1,6 @@
 import { line } from "d3-shape";
 
-const GeomLine = ({ data, scale }) => {
+const GeomLine = ({ data, scale, color = "black" }) => {
   const lineGen = line()
     .x(({ x }) => scale.x(x))
     .y(({ y }) => scale.y(y));
@@ -8,7 +8,7 @@ const GeomLine = ({ data, scale }) => {
     <path
       className="line"
       d={lineGen(data)}
-      stroke="steelblue"
+      stroke={color}
       strokeWidth="2"
       fill="none"
     />

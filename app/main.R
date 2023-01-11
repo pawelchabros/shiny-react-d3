@@ -9,7 +9,7 @@ box::use(
     observeEvent,
     reactiveVal,
   ],
-  shiny.react[reactOutput, renderReact],
+  shiny.react[JS, reactOutput, renderReact],
   stats[rpois],
   tibble[tibble],
 )
@@ -52,9 +52,17 @@ server <- function(id) {
       Plot(
         data = data(),
         AxisBottom(),
-        AxisLeft(),
-        GeomLine(),
-        GeomPoint()
+        AxisLeft(
+          nTicks = 4,
+          format = JS("(label) => `$${label}`")
+        ),
+        GeomLine(
+          color = "#AD8E70"
+        ),
+        GeomPoint(
+          color = "#243763",
+          r = 5
+        )
       )
     )
   })

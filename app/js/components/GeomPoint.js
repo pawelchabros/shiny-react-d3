@@ -1,7 +1,7 @@
-const GeomPoint = ({ data, scale }) => {
+const GeomPoint = ({ data, scale, r = 4 }) => {
   return (
     <g>
-      {data.map(({ x, y, r = 4 }) => (
+      {data.map(({ x, y }) => (
         <circle
           className="point"
           key={x}

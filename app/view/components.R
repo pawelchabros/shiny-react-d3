@@ -26,3 +26,18 @@ Barplot <- component("Barplot")
 
 #' @export
 Scatterplot <- component("Scatterplot")
+
+#' @export
+Plot <- component("Plot")
+
+#' @export
+AxisBottom <- component("AxisBottom")
+
+#' @export
+AxisLeft <- component("AxisLeft")
+
+#' @export
+GeomPoint <- component("GeomPoint")
+
+#' @export
+GeomLine <- component("GeomLine")

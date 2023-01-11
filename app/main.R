@@ -15,7 +15,13 @@ box::use(
 )
 
 box::use(
-  ./view/components[Scatterplot],
+  ./view/components[
+    Plot,
+    AxisBottom,
+    AxisLeft,
+    GeomLine,
+    GeomPoint,
+  ],
 )
 
 generate_data <- function() {
@@ -32,7 +38,7 @@ ui <- function(id) {
     div(
       class = "card",
       actionButton(inputId = ns("change_data"), label = "Change Data"),
-      reactOutput(ns("barplot"))
+      reactOutput(ns("plot"))
     )
   )
 }
@@ -42,6 +48,16 @@ server <- function(id) {
   moduleServer(id, function(input, output, session) {
     data <- reactiveVal(generate_data())
     observeEvent(input$change_data, data(generate_data()))
-    output$barplot <- renderReact(Scatterplot(data = data()))
+    output$plot <- renderReact(
+      Plot(
+        data = data(),
+        children = list(
+          AxisBottom(),
+          AxisLeft(),
+          GeomLine(),
+          GeomPoint()
+        )
+      )
+    )
   })
 }

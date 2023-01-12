@@ -57,11 +57,15 @@ server <- function(id) {
           format = JS("(label) => `$${label}`")
         ),
         GeomLine(
-          color = "#AD8E70"
+          color = "#AD8E70",
+          size = 3,
+          strokeDasharray = "3,3"
         ),
         GeomPoint(
-          color = "#243763",
-          r = 5
+          color = "white",
+          size = 10,
+          stroke = "#243763",
+          strokeWidth = 5
         )
       )
     )

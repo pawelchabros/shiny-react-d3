@@ -1,4 +1,4 @@
-const GeomPoint = ({ data, scale, color = "black", r = 4 }) => {
+const GeomPoint = ({ data, scale, size = 8, color = "black", ...params }) => {
   return (
     <g>
       {data.map(({ x, y }) => (
@@ -8,7 +8,8 @@ const GeomPoint = ({ data, scale, color = "black", r = 4 }) => {
           cx={scale.x(x)}
           cy={scale.y(y)}
           fill={color}
-          r={r}
+          r={size / 2}
+          {...params}
         />
       ))}
     </g>

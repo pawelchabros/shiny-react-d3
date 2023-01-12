@@ -71,7 +71,8 @@ window.jsmodule = {
 };
 ```
 
-And migrate `Barplot` component using `shiny.react`. Let's create `app/view/components.R` file:
+After editing `index.js` or any other `.js` file we have to build the code using `rhino::build_js()` (or we can set `wath = TRUE`).
+Now we can migrate `Barplot` component using `shiny.react`. Let's create `app/view/components.R` file:
 
 ```r
 box::use(

@@ -44,6 +44,9 @@ AxisBottom <- component("AxisBottom")
 AxisLeft <- component("AxisLeft")
 
 #' @export
+Geom <- component("Geom")
+
+#' @export
 GeomPoint <- component("GeomPoint")
 
 #' @export

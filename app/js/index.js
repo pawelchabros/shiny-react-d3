@@ -1,4 +1,5 @@
 import Barplot from "./components/Barplot";
+import Geom from "./components/Geom";
 import GeomLine from "./components/GeomLine";
 import GeomPoint from "./components/GeomPoint";
 import Plot from "./components/Plot";
@@ -11,6 +12,7 @@ window.jsmodule = {
     AxisBottom,
     AxisLeft,
     Barplot,
+    Geom,
     GeomLine,
     GeomPoint,
     Plot,

@@ -19,8 +19,8 @@ box::use(
     Plot,
     AxisBottom,
     AxisLeft,
+    Geom,
     GeomLine,
-    GeomPoint,
   ],
 )
 
@@ -61,11 +61,13 @@ server <- function(id) {
           size = 3,
           strokeDasharray = "3,3"
         ),
-        GeomPoint(
-          color = "white",
-          size = 10,
-          stroke = "#243763",
-          strokeWidth = 5
+        Geom(
+          tag = "image",
+          className = "point",
+          href = "https://stevenmortimer.com/blog/tips-for-making-professional-shiny-apps-with-r/shiny-hex.png",
+          width = 30,
+          height = 30,
+          transform = "translate(-15, -15)"
         )
       )
     )
